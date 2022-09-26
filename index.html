@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+      body {
+        background-color: rgb(221, 220, 220);
+        border: 5px solid rgb(84, 84, 84);
+      }
+  
+      .onespa {
+        display: inline-block;
+        width: 20%;
+        margin: 3%;
+        max-height: 200px;
+        padding-left: 70px; 
+        font-family: 'Courier New', Courier, monospace;
+        border-radius: 5px;
+        font-size: 20px;
+        color: rgb(63, 63, 109);
+      }
+      
+
+      .h1{
+        text-align: center;
+        width: auto;
+        padding-top: 20px;
+        font-weight: bold;
+        color: rgb(84, 84, 84);
+      }
+        
+      
+    </style>
+</head>
+<body>
+    <h1 class="h1">SPAN COUNTRY</h1>
+    <div id="txt"></div>
+    
+    <div id="contents">
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/py.png"> <br>PARAGUAY<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/pa.png"> <br>PANAMA<span></span></div>
+        <div class="onespa"><img width="100%" src="https://mainfacts.com/media/images/coats_of_arms/do.png"> <br>REPUBLIK DOMINIKAN <span></span></div>
+        <div class="onespa"><img width="100%" src="https://mainfacts.com/media/images/coats_of_arms/ar.png"> <br>AREGENTINA<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/es.png"> <br>SPANISH<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/gt.png"> <br>GUATEMALE<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/cl.png"> <br>CHILE<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/cr.png"> <br>COSTA RICE <span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/pr.png"> <br>PUERYO RICA <span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/co.png"> <br>CLOMBIA<span></span></div>
+        <div class="onespa"><img width="100%" src="https://mainfacts.com/media/images/coats_of_arms/ec.png"> <br>ECUADOR<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/mx.png"> <br>MEXICO<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/ni.png"> <br>NICARAGUE <span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/sv.png"> <br>El SALVADOR <span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/cu.png"> <br>CUBA<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/gu.png"> <br>GUAM<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/pe.png"> <br>PERU<span></span></div>
+        <div class="onespa"><img width="100%" src="https://flagcdn.com/w320/ve.png"> <br>VENEZUELA<span></span></div>
+    </div>  
+        
+    
+    
+      <script>
+          fetch("https://restcountries.com/v3.1/lang/spa")
+              .then(function (response) {
+                  return response.json();
+              })
+              .then(function (json) {
+                  
+                  console.log(json);
+    
+                  
+                  for(var i=0; i < json.data.spa.length; i++){
+                
+                      var onespa = "<img width='100%' src='" + json.data.spa[i].url + "'> <br> <span>" + json.data.spa[i].name + "</span>";
+                      document.querySelector("#contents").innerHTML += "<div class='onespa'>" + onespa + "</div>";
+                  }
+              })
+              .catch(function (error) {
+                  console.log('Request failed', error);
+              });
+    
+      </script>
+    
+    
+    </div>
+</body>
+</html>
